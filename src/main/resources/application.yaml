@@ -1,0 +1,43 @@
+
+server:
+  http2:
+    enabled: true
+  compression:
+    enabled: true
+
+#enable shutdown
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+          - info
+          - shutdown
+  endpoint:
+    shutdown:
+      enabled: true
+
+spring:
+  application:
+    name: business-card-service
+
+
+microservice:
+  auth:
+    baseurl: ${AUTH_BASE_URL}
+    respartner: ${microservice.auth.baseurl}/partner/{id}
+  cims:
+    baseurl: ${CIMS_BASE_URL}
+    genQrCode: ${microservice.cims.baseurl}/system/genQrCode
+  bims:
+    baseurl: ${BIMS_BASE_URL}
+    picurl: ${microservice.bims.baseurl}/web/image?model=res.partner&id={resparentid}&field=x_signature_image
+
+logging:
+  #file:
+    #path: G:\adf\abc.log
+  logback:
+    rollingpolicy:
+      max-file-size: 30MB
+      max-history: 30

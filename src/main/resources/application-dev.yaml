@@ -1,0 +1,13 @@
+
+server:
+  port: 9536
+
+
+microservice:
+  auth:
+    baseurl: http://localhost:9529
+  cims:
+    baseurl: https://uat-api.realjaja.com
+  bims:
+    baseurl: https://uat-bims.realjaja.com
+
